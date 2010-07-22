@@ -1,0 +1,22 @@
+body {
+    background-color: #000;
+}
+.slide {
+    border-style: solid ridge; 
+    border-color: #AAA;
+}
+.centerimg {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute; 
+    line-height: expression(imageWidth + "px");
+    left: 75px;
+    top: 10px; 
+    border-style: solid; 
+    border-width: 1px;
+    border-color: #AAA;
+}
+.centerimg * {
+    vertical-align: middle;
+}

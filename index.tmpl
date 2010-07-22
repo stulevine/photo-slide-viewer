@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=macintosh">
+<script type="text/javascript">
+var maxImages = <TMPL_VAR NAME=MAXIMAGES>;
+// Images object for preloading and caching images
+var images = new Object({
+<TMPL_VAR NAME=IMAGES>
+});
+
+var imageWidth = <TMPL_VAR NAME=SIZE> ;
+</script>
+<script type="text/javascript" src="/photography/js/console.js"></script>
+<script type="text/javascript" src="/photography/js/foo.js"></script>
+
+</head>
+<body style="background-color:#000;margin: 2px;" onLoad="var windim=getwinsize(); runit();">
+
+<div id=controls style="display: none; position: absolute; margin:0; left: 75px; top: 10px; vertical-align: center; align: center;width:<TMPL_VAR NAME=SIZE>;height:<TMPL_VAR NAME=SIZE>;z-index: 80;border-style:none; border-color: #aaa; border-width: 1px;" onMouseOver="togglectrl(true);" onMouseOut="togglectrl(false);"> 
+<table width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE> padding=0 cellspacing=0>
+<tr><td valign=center align=center width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE>>
+<img id=prev style="display: none;" src="prev.png" onClick="javascript:previmage();">&nbsp;
+<img id=prb src="pause.png" onClick="javascript:pause()">&nbsp;
+<img id=next style="display: none;" src="next.png" onClick="javascript:nextimage();">&nbsp;
+</td></tr>
+</table>
+</div>
+
+<div id=d1 style="position: absolute; margin:0; left: 75px; top: 10px; vertical-align: center; align: center;width:<TMPL_VAR NAME=SIZE>;height:<TMPL_VAR NAME=SIZE>; border-style:none; border-color: #aaa; border-width: 1px;"> 
+<table width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE> padding=0 cellspacing=0>
+<tr><td valign=center align=center width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE> >
+<img id="image1" src="blank.jpg" style="display: none; border-style: solid ridge; border-color: #AAA">
+</td></tr>
+</table>
+</div>
+
+<div id=d2 style="position: absolute; margin:0; left: 75px; top: 10px; vertical-align: center; align: center;width:<TMPL_VAR NAME=SIZE>;height:<TMPL_VAR NAME=SIZE>; border-style:none; border-color: #aaa; border-width: 1px">
+<table width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE> padding=0 cellspacing=0>
+<tr><td valign=center align=center width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE>>
+<img id="image2" src="blank.jpg" style="display: none; border-style: solid ridge; border-color: #AAA;">
+</td></tr>
+</table>
+</div>
+
+<div id=start style="position: absolute; margin:0; left: 75px; top: 10px; vertical-align: center; align: center;width:<TMPL_VAR NAME=SIZE>;height:<TMPL_VAR NAME=SIZE>;border-style:none; border-color: #aaa; border-width: 1px;" onMouseOver="togglectrl(true);" onMouseOut="togglectrl(false);"> 
+<table width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE> padding=0 cellspacing=0>
+<tr><td valign=center align=center width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE>>
+<img id="startimage" src="waiting.gif" style="display: none; border-style: none">
+</td></tr>
+</table>
+</div>
+
+<img id="holder1" src="blank.jpg" style="display: none; width: 0px; height: 0px;">
+<img id="holder2" src="blank.jpg" style="display: none; width: 0px; height: 0px;">
+</body>
+</html>

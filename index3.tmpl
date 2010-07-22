@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=macintosh">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<script type="text/javascript" src="/photography/js/json.js"></script>
+<script type="text/javascript">
+    var imageWidth = <TMPL_VAR NAME=SIZE> ;
+    var images = jsonobj.getobj('<TMPL_VAR NAME=GALLERY>',<TMPL_VAR NAME=U>,<TMPL_VAR NAME=UPDATE>);
+    var maxImages = images['imgcount'];
+</script>
+<script type="text/javascript" src="/photography/js/console.js"></script>
+<script type="text/javascript" src="/photography/js/foo.js"></script>
+<style>
+@font-face {
+    font-family: Lithos;
+    src: url('http://www.stulevine.com/photography/LithosPro-Black.eot') format('opentype');
+    src: url("http://www.stulevine.com/photography/LithosPro-Black.otf") format("truetype");
+}
+</style>
+</head>
+<body style="background-color:#000;margin: 2px;" onLoad="var windim=getwinsize(); runit();">
+
+<div id=controls style="display: none; position: absolute; margin:0; left: 75px; top: 10px; vertical-align: center; align: center;width:<TMPL_VAR NAME=SIZE>;height:<TMPL_VAR NAME=SIZE>;z-index: 80;border-style:none; border-color: #aaa; border-width: 1px;" onMouseOver="togglectrl(true);" onMouseOut="togglectrl(false);"> 
+<table width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE> padding=0 cellspacing=0>
+<tr><td valign=center align=center width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE>>
+<img id=prev style="display: none;" src="prev.png" onClick="javascript:previmage();">&nbsp;
+<img id=prb src="pause.png" onClick="javascript:pause()">&nbsp;
+<img id=next style="display: none;" src="next.png" onClick="javascript:nextimage();">&nbsp;
+</td></tr>
+</table>
+</div>
+
+<div id=d1 style="position: absolute; margin:0; left: 75px; top: 10px; vertical-align: center; align: center;width:<TMPL_VAR NAME=SIZE>;height:<TMPL_VAR NAME=SIZE>; border-style:none; border-color: #aaa; border-width: 1px;"> 
+<table width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE> padding=0 cellspacing=0>
+<tr><td valign=center align=center width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE> >
+<img id="image1" src="blank.jpg" style="display: none; border-style: solid ridge; border-color: #AAA">
+</td></tr>
+</table>
+</div>
+
+<div id=d2 style="position: absolute; margin:0; left: 75px; top: 10px; vertical-align: center; align: center;width:<TMPL_VAR NAME=SIZE>;height:<TMPL_VAR NAME=SIZE>; border-style:none; border-color: #aaa; border-width: 1px">
+<table width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE> padding=0 cellspacing=0>
+<tr><td valign=center align=center width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE>>
+<img id="image2" src="blank.jpg" style="display: none; border-style: solid ridge; border-color: #AAA;">
+</td></tr>
+</table>
+</div>
+
+<div id=start style="position: absolute; margin:0; left: 75px; top: 10px; vertical-align: center; align: center;width:<TMPL_VAR NAME=SIZE>;height:<TMPL_VAR NAME=SIZE>;border-style:none; border-color: #aaa; border-width: 1px;" onMouseOver="togglectrl(true);" onMouseOut="togglectrl(false);"> 
+<table width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE> padding=0 cellspacing=0>
+<tr><td valign=center align=center width=<TMPL_VAR NAME=SIZE> height=<TMPL_VAR NAME=SIZE>>
+<img id="startimage" src="waiting.gif" style="display: none; border-style: none;">
+</td></tr>
+</table>
+</div>
+<div id=progbar style="position: absolute; width: 102px;  margin:0; left: 2px; top: 2px;">
+    <div id=outterkarma style="position: relative;width:102px; height: 6px; margin:0; left: 0px; top: 0px; align: left;border-style:sold; border-color: #888; border-width: 1px;background-color:#DDD;line-height:0;"><!---->
+        <div id=innerkarma style="position: relative; width: 0px; height: 4px; left:1px; top: 1px; background-color:#555;line-height:0; margin:0;"><!----></div>
+    </div>
+    <div id=label style="font-family: sans-serif; font-size: 9px; color: #EEE;align: left;margin-top:2px;">Loading  Progress&hellip;</div>
+</div> <!-- progbar -->
+<div id=imgtitle style="position: absolute; height: 50px; float: center; text-align: center; left: 5px; top: 26px; vertical-align: middle; font-family: Lithos, Impact, sans-serif; font-size: 14px; color: #aab; margin-top:1px;"></div>
+<img id="holder1" src="blank.jpg" style="display: none; width: 0px; height: 0px;">
+<img id="holder2" src="blank.jpg" style="display: none; width: 0px; height: 0px;">
+</body>
+</html>
